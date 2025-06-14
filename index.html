@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to AWS Pipeline</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: radial-gradient(circle at center, #0f0c29, #302b63, #24243e);
+      color: white;
+      overflow: hidden;
+      perspective: 1000px;
+    }
+
+    .container {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      animation: fadeIn 2s ease-in;
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      color: #00ffe7;
+      margin-bottom: 20px;
+      animation: slideDown 1.5s ease-out;
+      text-shadow: 0 0 10px #00ffe7;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #ffffffcc;
+      max-width: 600px;
+      animation: slideUp 2s ease-out;
+    }
+
+    .pulse-circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 300px;
+      height: 300px;
+      background: rgba(0, 255, 231, 0.1);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      animation: pulse 3s infinite;
+      z-index: 0;
+    }
+
+    .btn {
+      margin-top: 40px;
+      padding: 12px 24px;
+      font-size: 1rem;
+      background-color: #00ffe7;
+      border: none;
+      border-radius: 25px;
+      color: #0f0c29;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease-in-out;
+      animation: fadeIn 3s ease-in;
+      box-shadow: 0 0 15px #00ffe7;
+    }
+
+    .btn:hover {
+      background-color: #00dac8;
+      transform: scale(1.1);
+    }
+
+    .background-3d {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .cube {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 20px rgba(0, 255, 231, 0.4);
+      animation: floatCube 30s infinite linear;
+      transform-style: preserve-3d;
+    }
+
+    .cube::before,
+    .cube::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: inherit;
+      transform: rotateY(90deg);
+    }
+
+    .cube:nth-child(1) {
+      left: 15%;
+      top: 60%;
+      animation-delay: 0s;
+    }
+
+    .cube:nth-child(2) {
+      left: 75%;
+      top: 50%;
+      animation-delay: 10s;
+    }
+
+    .cube:nth-child(3) {
+      left: 35%;
+      top: 80%;
+      animation-delay: 5s;
+    }
+
+    .cube:nth-child(4) {
+      left: 90%;
+      top: 20%;
+      animation-delay: 15s;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.7;
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.3);
+        opacity: 0.3;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.7;
+      }
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes floatCube {
+      0% {
+        transform: translateY(0) rotate(0deg) rotateX(0deg) rotateY(0deg);
+      }
+      100% {
+        transform: translateY(-1200px) rotate(720deg) rotateX(360deg) rotateY(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="background-3d">
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+  </div>
+  <div class="pulse-circle"></div>
+  <div class="container">
+    <h1>Welcome to AWS Pipeline V3 using git</h1>
+    <p>Your deployment journey starts here. Experience continuous integration and delivery the cloud-native way.</p>
+    <button class="btn">Get Started</button>
+  </div>
+</body>
+
+</html>
